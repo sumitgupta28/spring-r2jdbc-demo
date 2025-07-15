@@ -1,0 +1,8 @@
+curl -X POST http://localhost:8080/api/books -H 'Content-Type: application/json' -d '{"title":"My Book1","author":"m1"}'
+curl -X POST http://localhost:8080/api/books -H 'Content-Type: application/json' -d '{"title":"My Book2","author":"m1"}'
+curl -X POST http://localhost:8080/api/books -H 'Content-Type: application/json' -d '{"title":"My Book3","author":"m1"}'
+curl -X POST http://localhost:8080/api/books -H 'Content-Type: application/json' -d '{"title":"My Book4","author":"m1"}'
+curl -X POST http://localhost:8080/api/books -H 'Content-Type: application/json' -d '{"title":"My Book5","author":"m1"}'
+curl -X POST http://localhost:8080/api/books -H 'Content-Type: application/json' -d '{"title":"My Book X22","author":"m1"}'
+
+curl -X GET http://localhost:8080/api/books

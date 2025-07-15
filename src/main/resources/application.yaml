@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: spring-react-demo
+    datasource:
+    jpa:
+      hibernate:
+        ddl-auto: none # Important: Let Flyway manage schema
+
+  flyway:
+    enabled: true
+    locations: classpath:flyway/migration
+    baseline-on-migrate : true
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password : mysecretpassword
+
+## PostgreSQL
+
+  r2dbc:
+    url : r2dbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: mysecretpassword
