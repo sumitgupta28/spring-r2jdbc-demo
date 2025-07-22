@@ -11,8 +11,6 @@ spring:
     locations: classpath:flyway/migration
     baseline-on-migrate : true
     url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password : mysecretpassword
 
 ## PostgreSQL
 

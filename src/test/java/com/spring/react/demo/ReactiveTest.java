@@ -20,19 +20,19 @@ public class ReactiveTest {
         Flux<Integer> evenNumbers = numbers.filter(number -> number % 2 == 0);
         evenNumbers.subscribe(System.out :: println ,
                 error -> System.err.println("Error: " + error), // Consumer for errors (optional)
-                () -> System.out.println("Completed"));
+                () -> System.out.println("numbers.filter Completed"));
 
-        Flux<String> letterFlux = numbers.flatMap(number -> Flux.just("A", "B","C").map(letter -> number + letter));
+        Flux<String> letterFlux = numbers.filter(integer -> integer%2==0).flatMap(number -> Flux.just("A", "B","C").map(letter -> number + letter));
         letterFlux.subscribe(System.out :: println ,
                 error -> System.err.println("Error: " + error), // Consumer for errors (optional)
-                () -> System.out.println("Completed"));
+                () -> System.out.println("Flux.just(\"A\", \"B\",\"C\").map Completed"));
 
 
         Flux<String> letters = Flux.just("A", "B", "C");
         Flux<String> combined = Flux.zip(numbers, letters, (number, letter) -> number + letter);
         combined.subscribe(System.out :: println ,
                 error -> System.err.println("Error: " + error), // Consumer for errors (optional)
-                () -> System.out.println("Completed"));
+                () -> System.out.println("Flux.zip Completed"));
 
 
         Flux<Integer> flux1 = Flux.just(1, 3, 5);
@@ -46,7 +46,7 @@ public class ReactiveTest {
 
         concatenatedFlux.subscribe(System.out :: println ,
                 error -> System.err.println("Error: " + error), // Consumer for errors (optional)
-                () -> System.out.println("Completed combined "));
+                () -> System.out.println("Completed concat "));
 
     }
 }
