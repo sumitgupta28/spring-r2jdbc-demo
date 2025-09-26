@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@EnableConfigurationProperties({ R2dbcProperties.class, FlywayProperties.class })
-class DatabaseConfig {
+@EnableConfigurationProperties({R2dbcProperties.class, FlywayProperties.class})
+class FlywayDatabaseConfig {
     @Bean(initMethod = "migrate")
     public Flyway flyway(FlywayProperties flywayProperties, R2dbcProperties r2dbcProperties) {
         return Flyway.configure()
@@ -18,9 +18,7 @@ class DatabaseConfig {
                         r2dbcProperties.getUsername(),
                         r2dbcProperties.getPassword()
                 )
-                .locations(flywayProperties.getLocations()
-                        .stream()
-                        .toArray(String[]::new))
+                .locations(flywayProperties.getLocations().toArray(String[]::new))
                 .baselineOnMigrate(true)
                 .load();
     }

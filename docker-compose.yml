@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: circleci/postgres:9-bullseye-ram # Use a specific version for stability, e.g., 16-alpine
+    container_name: my_postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: demoDatabse
+    ports:
+      - "5432:5432" # Map host port 5432 to container port 5432
+    volumes:
+      - db_data:/var/lib/postgresql/data # Persist data to a named volume
+
+volumes:
+  db_data: # Define the named volume for data persistence

@@ -1,5 +1,10 @@
 # Getting Started
 
+This Repo shows
+
+- How spring boot can connect with Postgres SQL in reactive way
+- Flyway setup for Postgres
+
 ### Reference Documentation
 
 #### Start local database
@@ -12,9 +17,10 @@ docker run --name postgres_container -e POSTGRES_PASSWORD=mysecretpassword -d -p
 
 ```
 
-
 #### Test Curls
-##### Create 
+
+##### Create
+
 ```bash
 curl --location 'http://localhost:8080/api/books' \
 --header 'Content-Type: application/json' \
@@ -25,7 +31,9 @@ curl --location 'http://localhost:8080/api/books' \
      "author":"asdasda"
 }'
 ```
+
 ##### Update
+
 ```bash
 curl --location --request PUT 'http://localhost:8080/api/books' \
 --header 'Content-Type: application/json' \
@@ -38,18 +46,20 @@ curl --location --request PUT 'http://localhost:8080/api/books' \
 }'
 ```
 
-
 ##### Get By Id
+
 ```bash
 curl --location 'http://localhost:8080/api/books/1' 
 ```
 
 ##### Get ALL
+
 ```bash
 curl --location 'http://localhost:8080/api/books' 
 ```
 
 ##### Delete
+
 ```bash
 curl --location --request DELETE 'http://localhost:8080/api/books/1' 
 ```

@@ -1,20 +1,43 @@
 spring:
+  profiles:
+    active:
+      - local
   application:
     name: spring-react-demo
-    datasource:
-    jpa:
-      hibernate:
-        ddl-auto: none # Important: Let Flyway manage schema
 
+  # ===========================
+  # flyway Configuration
+  # ===========================
   flyway:
     enabled: true
     locations: classpath:flyway/migration
-    baseline-on-migrate : true
-    url: jdbc:postgresql://localhost:5432/postgres
+    baseline-on-migrate: true
+    url: jdbc:postgresql://localhost:5432/demoDatabse
+    user: myuser
+    password: mypassword
 
-## PostgreSQL
+  # ===========================
+  # r2jdbc  Configuration
+  # ===========================
 
   r2dbc:
-    url : r2dbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: mysecretpassword
+    url: r2dbc:postgresql://localhost:5432/demoDatabse
+    username: myuser
+    password: mypassword
+  # ===========================
+  # JPA / Hibernate Configuration
+  # ===========================
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+logging:
+  level:
+    root: info
+    io.r2dbc: debug
+    org.springframework.data.r2dbc: info
+    org.springframework.r2dbc: debug

@@ -5,11 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
 
 @SpringBootApplication
-@EnableR2dbcRepositories(basePackages = {"com.spring.react.demo"}, basePackageClasses = {})
+@EnableR2dbcRepositories(basePackages = {"com.spring.react.demo"})
 public class SpringReactDemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringReactDemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringReactDemoApplication.class, args);
+    }
 
 }
